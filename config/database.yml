@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: animal_rescue_project_development
+
+test:
+  adapter: postgresql
+  database: animal_rescue_project_test
