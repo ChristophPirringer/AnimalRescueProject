@@ -3,6 +3,10 @@ require('spec_helper')
 describe(GoodSamaritan) do
   it {should have_many(:child_tickets)}
 
+
+  ###############################################
+  #############__Object-Creation__###############
+  ###############################################
   before() do
     @peter = GoodSamaritan.new({:name => "", :email => "", :phone_number => nil})
     @peter.save
@@ -10,6 +14,10 @@ describe(GoodSamaritan) do
     @paul.save
   end
 
+
+  ###############################################
+  #############__Input-Validation__##############
+  ###############################################
   it("ensures a name exists") do
     expect(@peter.save()).to(eq(false))
   end
@@ -22,6 +30,10 @@ describe(GoodSamaritan) do
     expect(@peter.save()).to(eq(false))
   end
 
+
+  ###############################################
+  #########__Attribute-Verification__############
+  ###############################################
    it("ensures Paul has a name as entered") do
      expect(@paul.name()).to(eq("Paul"))
    end

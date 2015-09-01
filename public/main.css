@@ -1,0 +1,16 @@
+/***********************
+-------Global--------
+***********************/
+body{
+  padding-top: 170px;
+  height: 850px;
+  background: linear-gradient(#fff, transparent 90%),
+  linear-gradient(0deg, #fff, transparent),
+  #fff url('http://images4.alphacoders.com/189/189538.jpg') no-repeat center;
+  background-size: cover;
+  text-align:center;
+}
+
+ul {
+  list-style-type: none;
+}
