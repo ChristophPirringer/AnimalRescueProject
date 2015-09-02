@@ -11,11 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150901235503) do
+=======
+ActiveRecord::Schema.define(version: 20150901225819) do
+>>>>>>> 40687cb6166f3ff9efe26647310b16e83542d6d5
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "parent_tickets", force: :cascade do |t|
     t.string   "name"
     t.integer  "organization_id"
@@ -33,6 +38,29 @@ ActiveRecord::Schema.define(version: 20150901235503) do
   create_table "shots_parent_tickets", force: :cascade do |t|
     t.integer "parent_ticket_id"
     t.integer "shot_id"
+=======
+  create_table "child_tickets", force: :cascade do |t|
+    t.string   "animal_type"
+    t.string   "description"
+    t.string   "location"
+    t.string   "time"
+    t.boolean  "posession"
+    t.string   "sex"
+    t.boolean  "news"
+    t.integer  "good_samaritan_id"
+    t.integer  "parent_ticket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "picture"
+  end
+
+  create_table "good_samaritans", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "phone_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> 40687cb6166f3ff9efe26647310b16e83542d6d5
   end
 
 end
