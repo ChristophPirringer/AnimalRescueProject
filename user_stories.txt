@@ -1,0 +1,18 @@
+as a samaritan, I want to be able to enter my name, email, and phone number.
+
+as a samaritan, I want to be able to create a ticket for the homeless animal where I enter their location, animal description, time and date, animal type, picture, whether I'm in possession, and an option for future updates on the animal.
+
+as a samaritan, I want to be able to view the tickets I have created.
+
+
+as an organization, I want to be able to enter by organization name, address, phone number, email, social media, visiting hours, contact name, and mission statement.
+
+as an organization, I want to be able to display whether I have open kennel space or not.
+
+as an organization, I want to see where the homeless animal is located.
+
+as an organization, I want to see a description of the homeless animal.
+
+as an organization, I want to be able to create a parent ticket for a homeless animal I am now in possession of.
+
+as an organization, I want to be able to update my parent tickets with animal needs (neuter/spay, shots, adoption ready)
