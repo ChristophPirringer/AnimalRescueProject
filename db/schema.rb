@@ -11,34 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150901235503) do
-=======
-ActiveRecord::Schema.define(version: 20150901225819) do
->>>>>>> 40687cb6166f3ff9efe26647310b16e83542d6d5
+ActiveRecord::Schema.define(version: 20150902173951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-  create_table "parent_tickets", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "organization_id"
-    t.boolean  "sterilized"
-    t.boolean  "adoption_ready"
-    t.string   "picture"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shots", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "shots_parent_tickets", force: :cascade do |t|
-    t.integer "parent_ticket_id"
-    t.integer "shot_id"
-=======
   create_table "child_tickets", force: :cascade do |t|
     t.string   "animal_type"
     t.string   "description"
@@ -60,7 +37,25 @@ ActiveRecord::Schema.define(version: 20150901225819) do
     t.integer  "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
->>>>>>> 40687cb6166f3ff9efe26647310b16e83542d6d5
+  end
+
+  create_table "parent_tickets", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "organization_id"
+    t.boolean  "sterilized"
+    t.boolean  "adoption_ready"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parent_tickets_shots", force: :cascade do |t|
+    t.integer "parent_ticket_id"
+    t.integer "shot_id"
+  end
+
+  create_table "shots", force: :cascade do |t|
+    t.string "name"
   end
 
 end
