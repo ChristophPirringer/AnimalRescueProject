@@ -8,6 +8,11 @@ class Shot < ActiveRecord::Base
   private
 
   define_method(:normalize_name) do
-    self.name=self.name.downcase.titleize
+    correct_name = name.split
+    correct_name.each do |word|
+      word.downcase!
+      word.capitalize!
+    end
+    self.name = correct_name.join(" ")
   end
 end

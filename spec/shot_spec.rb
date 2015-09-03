@@ -15,7 +15,7 @@ describe(Shot) do
 end
 
 describe(Shot) do
-  it("normilizes the name - lower case it then title case") do
+  it("normalizes the name - lower case it then title case") do
     shot = Shot.create({:name => "lymeVax"})
     expect(shot.name()).to(eq("Lymevax"))
   end

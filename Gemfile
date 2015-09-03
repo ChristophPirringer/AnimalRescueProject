@@ -7,3 +7,4 @@ gem("sinatra-contrib", :require => "sinatra/reloader")
 gem("sinatra-activerecord")
 gem("rake")
 gem("shoulda-matchers")
+gem 'pry'

@@ -8,10 +8,10 @@ require('pg')
 require('shoulda-matchers')
 require('GoodSamaritan')
 require('ChildTicket')
-require('pry')
+require('organization')
 require('parent_ticket')
 require('shot')
-# require('organization')
+require('pry')
 
 
 
@@ -26,9 +26,9 @@ RSpec.configure do |config|
       s.destroy()
     end
 
-    # Organization.all().each() do |o|
-    #   o.destroy()
-    # end
+    Organization.all().each() do |o|
+      o.destroy()
+    end
 
     ChildTicket.all().each() do |child_ticket|
       child_ticket.destroy()

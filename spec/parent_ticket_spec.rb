@@ -1,7 +1,6 @@
 require('spec_helper')
 
-
-
+######### VALIDATE and NORMALIZE Name #########
 describe(ParentTicket) do
   it("validates presence of a parent_ticket name") do
     test_parent_ticket = ParentTicket.new({:name => ""})
@@ -10,13 +9,14 @@ describe(ParentTicket) do
 end
 
 describe(ParentTicket) do
-  it("normilizes the name - lower case it then title case") do
+  it("normalizes the name - lower case it then title case") do
     test_shot = Shot.create({:name => 'lymevax'})
     test_parent_ticket = ParentTicket.create({:name => "beLlA", :shot_ids => [test_shot.id()], :sterilized => true, :adoption_ready => true, :picture => "None" })
     expect(test_parent_ticket.name()).to(eq("Bella"))
   end
 end
 
+####### INPUT CHECK ########
 describe(ParentTicket) do
   describe("#shots") do
     it('shows which shots a parent_ticket was administered and vice versa') do
