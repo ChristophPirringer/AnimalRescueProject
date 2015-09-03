@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902210111) do
+ActiveRecord::Schema.define(version: 20150903225724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150902210111) do
     t.string   "description"
     t.string   "location"
     t.string   "time"
-    t.boolean  "posession"
+    t.boolean  "possession"
     t.string   "sex"
     t.boolean  "news"
     t.integer  "good_samaritan_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150902210111) do
     t.string  "hours"
     t.string  "mission_statement"
     t.string  "email"
+    t.string  "website"
   end
 
   create_table "parent_tickets", force: :cascade do |t|

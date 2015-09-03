@@ -92,7 +92,7 @@ describe('adding a new Child_Ticket', {:type => :feature}) do
     expect(page).to have_content('bear')
   end
 
-  it('allowsa user to add a ticket to the Good Samaritan and view it on the Samaritans ticket-listing') do
+  it('allows a user to add a ticket to the Good Samaritan and view it on the Samaritans ticket-listing') do
     visit('/')
     click_link('Samaritans')
     click_link('Submit a new Good Samaritan!')

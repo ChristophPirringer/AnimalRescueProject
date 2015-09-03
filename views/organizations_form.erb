@@ -1,0 +1,69 @@
+<div class="panel panel-defaul">
+  <div class="panel-heading"><h1>Add a New Organization</h1></div>
+  <div class="panel-body">
+    <form class="form-horizontal" action="/organizations" method="post" id="new_org">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="name">Organization's name:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="name" name="name" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="address">Address:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="address" name="address" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="phone">Phone:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="phone" name="phone" type="number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="social">Facebook Page:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="social" name="social" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="contact_name">Contact Name:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="contact_name" name="contact_name" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="hours">Hours:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="hours" name="hours" type="text" placeholder="i.e. 9a-5p">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="mission_statement">Your Mission:</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" rows="5" name="mission_statement" form="new_org" placeholder="Your mission statement ..."></textarea>
+          </div>
+        </div>
+        <!-- <label class="col-sm-2 control-label" for="mission_statement">Mission Statement:</label>
+        <div class="col-sm-10"> <input id="mission_statement" name="mission_statement" type="textarea"> -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="email">Email:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="email" name="email" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="email">Website:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="website" name="website" type="text">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Add Organization</button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

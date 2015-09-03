@@ -1,0 +1,15 @@
+<h2>Organizations</h2>
+
+<%if @organizations.any? %>
+  <h3>Here are your organizations:</h3>
+
+  <ul>
+    <% @organizations.each do |organization| %>
+    <li><a href="/organizations/<%= organization.id() %>"><%= organization.name() %> </a></li>
+    <% end %>
+  </ul>
+
+<% else %>
+    <p>There are no organizations yet!</p>
+<% end %>
+<a href="/organizations/new" class="btn btn-success">Submit a new Organization!</a>

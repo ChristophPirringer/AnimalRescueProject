@@ -3,21 +3,19 @@ class Organization < ActiveRecord::Base
   has_many(:child_tickets)
   has_many(:samaritans)
 
-  validates :name, :address, :email, :phone, :contact_name, :address, :presence => true, :uniqueness => true
+  validates :name, :address, :email, :phone, :contact_name, :address, :website, :presence => true, :uniqueness => true
   before_save(:normalize_name)
   before_save(:normalize_contact)
 
-  validates :phone, numericality: {only_integer: true}
-  validates :phone, length: {is: 10}
+  # validates :phone, numericality: {only_integer: true}
+  # validates :phone, length: {is: 10}
 
   # validates :mission_statement, length: {maximum: 500}
 
   private
 
   define_method(:normalize_name) do
-
     correct_name = name.split
-
     correct_name.each do |word|
       word.downcase!
       word.capitalize!
