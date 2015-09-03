@@ -2,7 +2,7 @@ class GoodSamaritan < ActiveRecord::Base
   has_many(:child_tickets)
   # before_save(:capitalize_name)
 
-  validates :name, :email, :phone_number, :uniqueness => true, :presence => true
+  validates :name, :email, :phone_number, :presence => true
 
   scope(:not_done, -> do
     where({:done => false})

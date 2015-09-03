@@ -1,0 +1,14 @@
+<h2>Here are all your tickets:</h2>
+
+<%if @samaritan.child_tickets.any? %>
+	<h3>Here are your tickets:</h3>
+
+	<ul>
+		<% @samaritan.child_tickets.each do |child_ticket| %>
+		<li><a href="/samaritans/<%= @samaritan.id() %>/tickets/<%= child_ticket.id %>"><%= child_ticket.animal_type() %> at <%= child_ticket.time() %></a></li>
+		<% end %>
+	</ul>
+
+<% else %>
+		<p>There are no tickets yet!</p>
+<% end %>

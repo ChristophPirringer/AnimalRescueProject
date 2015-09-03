@@ -1,0 +1,16 @@
+<h2>Samaritan's Menu</h2>
+
+<%if @samaritans.any? %>
+	<h3>Here are your samaritans:</h3>
+
+	<ul>
+		<% @samaritans.each do |samaritan| %>
+		<li><a href="/samaritans/<%= samaritan.id() %>"><%= samaritan.name() %> </a> <a href="mailto:<%= samaritan.email() %>"><%= samaritan.email() %></a></li>
+		<% end %>
+	</ul>
+
+<% else %>
+		<p>There are no samaritans yet!</p>
+<% end %>
+
+<a href="/samaritans/new">Submit a new Good Samaritan!</a>
