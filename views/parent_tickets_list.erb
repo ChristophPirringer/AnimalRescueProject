@@ -1,0 +1,13 @@
+<h2>Parent Tickets of Animals in the care of <%= @organization.name() %>:</h2>
+<br>
+<%if @organization.parent_tickets.any? %>
+
+    <ul>
+        <% @organization.parent_tickets.each do |parent_ticket| %>
+        <li><a href="/organizations/<%= @organization.id() %>/parent_tickets/<%= parent_ticket.id %>"> <i class="fa fa-paw"></i></i><span class="list-left"><%= parent_ticket.name() %></a></li>
+        <% end %>
+    </ul>
+
+<% else %>
+        <p>There are no Animals in the care of <%= @organization.name() %> yet!</p>
+<% end %>

@@ -4,27 +4,37 @@
 
   <label for="animal_type">Type of animal:  </label>
   <input type="text" name="animal_type" id="animal_type">
-
+  <br>
   <label for="description">Description of animal:  </label>
   <input type="text" name="description" id="description">
-
+  <br>
   <label for="location">Location:  </label>
   <input type="text" name="location" id="location">
-
+  <br>
   <label for="time">Time:  </label>
   <input type="text" name="time" id="time">
+
 
   <!-- id = "possession" -->
   <label for="possession">If you are currently in possession of the animal, plase check the box below:</label>
   <input type="checkbox" name="possession[]" value="true"> In possession<br>
   <input type="checkbox" name="possession[]" value="false" checked> Not in possession<br>
+  <br>
+  <label for="possession">If you are currently in possession of the animal, plase check the box below:</label>
+  <br>
+  <input type="checkbox" name="possession[]" value="true"> In possession<br>
+  <input type="checkbox" name="possession[]" value="false" checked> Not in possession<br>
+  <br>
 
   <label for="sex">Sex:  </label>
   <input type="text" name="sex" id="sex">
-
+  <br>
   <label for="news">If you want to be kept up to date on what happens to the animal, please check the box below:</label>
+  <br>
   <input id = "news" type="checkbox" name="news[]" value="true"> Inform me!<br>
   <input id = "news" type="checkbox" name="news[]" value="false" checked> Don't inform me!<br>
 
+
   <button type="submit">Submit sighting!</button>
+
 </form>

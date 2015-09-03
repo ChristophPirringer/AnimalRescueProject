@@ -1,0 +1,20 @@
+<h2>Submit a new Parent Ticket of an animal:</h2>
+
+<form action="/organizations/<%= @organization.id() %>" method="post">
+
+  <label for="name">Name of animal:  </label>
+  <input type="text" name="name" id="name">
+  <br>
+  <label for="sterilized">Is the animal sterilized?  </label>
+  <input type="checkbox" name="sterilized[]" value="true"> Is sterilized<br>
+  <input type="checkbox" name="sterilized[]" value="false" checked> Not sterilized<br>
+  <br>
+  <label for="picture">Post the link to a picture of the new animal:</label>
+  <input type="text" name="picture" id="picture">
+  <br>
+  <label for="adoption_ready">Post the link to a picture of the new animal</label>
+  <input id = "adoption_ready" type="checkbox" name="adoption_ready[]" value="true">The Animal Is Adoption-Ready!<br>
+  <input id = "adoption_ready" type="checkbox" name="adoption_ready[]" value="false" checked>The Animal Is Not Adoption-Ready!<br>
+  <br>
+  <button type="submit" class="btn-primary btn-lg raised">Submit Parent Ticket!</button>
+</form>

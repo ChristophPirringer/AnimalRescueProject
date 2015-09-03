@@ -1,14 +1,15 @@
-<h2>Here are all your tickets:</h2>
-
+<h2>Sightings contributed:</h2>
+<br>
 <%if @samaritan.child_tickets.any? %>
-	<h3>Here are your tickets:</h3>
 
 	<ul>
 		<% @samaritan.child_tickets.each do |child_ticket| %>
-		<li><a href="/samaritans/<%= @samaritan.id() %>/tickets/<%= child_ticket.id %>"><%= child_ticket.animal_type() %> at <%= child_ticket.time() %></a></li>
+		<li><a href="/samaritans/<%= @samaritan.id() %>/tickets/<%= child_ticket.id %>"> <i class="fa fa-paw"></i></i><span class="list-left"><%= child_ticket.animal_type() %> at <%= child_ticket.time() %></a></li>
 		<% end %>
 	</ul>
 
 <% else %>
-		<p>There are no sightings yet!</p>
+
+		<p>There are no sightings contributed yet!</p>
+
 <% end %>
