@@ -1,7 +1,11 @@
 development:
   adapter: postgresql
   database: animal_rescue_project_development
-
+  host: localhost
+  user: postgres
+  password: secret
 test:
   adapter: postgresql
   database: animal_rescue_project_test
+  user: postgres
+  password: secret
