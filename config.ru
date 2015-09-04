@@ -1,1 +1,2 @@
-https://github.com/ChristophPirringer/AnimalRescueProject.git
+require ('./app')
+run Sinatra::Application
