@@ -1,15 +1,18 @@
+<div class="panel panel-defaul">
+  <div class="panel-heading"><h2> <i><% @organization.id() %> <%= @organization.name() %></i>'s info:</h2></div>
+  <div class="panel-body">
+    <ul class="list-unstyled">
+  <li>Address: <%= @organization.address %></li>
+  <li>Phone: <%= @organization.phone %></li>
+  <li>Email: <%= @organization.email %></li>
+  <li>Website: <a href="<%= @organization.website %>" target="_blank"><%= @organization.website %></a></li>
+  <li>Facebook: <a href="<%= @organization.social %>" target="_blank"><%= @organization.social %></a></li>
+  <li>Contact Name: <%= @organization.contact_name %></li>
+  <li>Hours: <%= @organization.hours %></li>
+  <li>Mission Statement: <%= @organization.mission_statement %></li>
+</ul>
+<span class="col-md-12 text-center">  <a class="btn btn-info" href="/organizations/<%= @organization.id() %>/new_parent">Claim an animal!</a>
 
-<h2> <i><% @organization.id() %> <%= @organization.name() %></i>'s info:</h2>
-
-<p>Address: <%= @organization.address %></p>
-<p>Phone: <%= @organization.phone %></p>
-<p>Email: <%= @organization.email %></p>
-<p>Website: <a href="<%= @organization.website %>" target="_blank"><%= @organization.website %></a></p>
-<p>Facebook: <a href="<%= @organization.social %>" target="_blank"><%= @organization.social %></a></p>
-<p>Contact Name: <%= @organization.contact_name %></p>
-<p>Hours: <%= @organization.hours %></p>
-<p>Mission Statement: <%= @organization.mission_statement %></p>
-
-<a class="btn btn-info" href="/organizations/<%= @organization.id() %>/new_parent">Claim an animal!</a>
-
-<a class="btn btn-warning" href="/organizations/<%= @organization.id() %>/manage">Manage your animals!</a>
+  <a class="btn btn-warning" href="/organizations/<%= @organization.id() %>/manage">Manage your animals!</a></span>
+</div>
+</div>

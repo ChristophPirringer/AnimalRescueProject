@@ -1,27 +1,36 @@
-<h2>Submit a new Parent Ticket of an animal:</h2>
+<div class="panel panel-defaul">
+  <div class="panel-heading"><h2>Submit a new Parent Ticket of an animal:</h2></div>
+  <div class="panel-body">
+    <form class="form-horizontal" action="/organizations/<%= @organization.id() %>" method="post">
+      <div class="form-group">
+          <label class="col-sm-2 control-label" for="name">Name of animal:  </label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="name" id="name">
+        </div>
+      </div>
+      <div class="form-group">
+      <label class="col-sm-2 control-label" for="sterilized">Is the animal sterilized?  </label>
+      <div class="col-sm-10">
+        <input class="checkbox" type="checkbox" name="sterilized[]" value="true"> Is sterilized<br>
+      </div>
+      <div class="col-sm-10">
+        <input type="checkbox" name="sterilized[]" value="false" checked> Not sterilized<br>
+      </div>
+      <label for="picture">Post the link to a picture of the new animal:</label>
+      <input type="text" name="picture" id="picture">
+      <br>
+      <label for="adoption_ready">Post the link to a picture of the new animal</label>
+      <input id = "adoption_ready" type="checkbox" name="adoption_ready[]" value="true">The Animal Is Adoption-Ready!<br>
+      <input id = "adoption_ready" type="checkbox" name="adoption_ready[]" value="false" checked>The Animal Is Not Adoption-Ready!<br>
+      <br>
+      <label for="checkbox">Link the following sightings to the animal:</label>
 
-<form action="/organizations/<%= @organization.id() %>" method="post">
+      <br>
+      <% @child_tickets.each() do |child_ticket|%>
+        <input type="checkbox" name="linked_child_ticket[]" value="<%= child_ticket.id %>"> link <%= child_ticket.animal_type() %> described as <%= child_ticket.description() %>to the animal<br>
+      <% end %>
 
-  <label for="name">Name of animal:  </label>
-  <input type="text" name="name" id="name">
-  <br>
-  <label for="sterilized">Is the animal sterilized?  </label>
-  <input type="checkbox" name="sterilized[]" value="true"> Is sterilized<br>
-  <input type="checkbox" name="sterilized[]" value="false" checked> Not sterilized<br>
-  <br>
-  <label for="picture">Post the link to a picture of the new animal:</label>
-  <input type="text" name="picture" id="picture">
-  <br>
-  <label for="adoption_ready">Post the link to a picture of the new animal</label>
-  <input id = "adoption_ready" type="checkbox" name="adoption_ready[]" value="true">The Animal Is Adoption-Ready!<br>
-  <input id = "adoption_ready" type="checkbox" name="adoption_ready[]" value="false" checked>The Animal Is Not Adoption-Ready!<br>
-  <br>
-  <label for="checkbox">Link the following sightings to the animal:</label>
-
-  <br>
-  <% @child_tickets.each() do |child_ticket|%>
-    <input type="checkbox" name="linked_child_ticket[]" value="<%= child_ticket.id %>"> link <%= child_ticket.animal_type() %> described as <%= child_ticket.description() %>to the animal<br>
-  <% end %>
-
-  <button type="submit" class="btn-primary btn-lg raised">Submit Parent Ticket!</button>
-</form>
+      <button type="submit" class="btn-primary btn-lg raised">Submit Parent Ticket!</button>
+    </form>
+  </div>
+</div>

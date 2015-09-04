@@ -1,4 +1,6 @@
-<h2>The ticket of <%= @parent_ticket.name() %></h2>
+<div class="panel panel-defaul">
+  <div class="panel-heading"><h2>The ticket of <i><%= @parent_ticket.name() %></i></h2></div>
+  <div class="panel-body">
 
 <img src="<%= @parent_ticket.picture() %>" alt="picture of the animal" />
 <br>
@@ -87,3 +89,5 @@
       <% end %>
   </tr>
 </table>
+</div>
+</div>
