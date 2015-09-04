@@ -4,12 +4,12 @@
 <p>Address: <%= @organization.address %></p>
 <p>Phone: <%= @organization.phone %></p>
 <p>Email: <%= @organization.email %></p>
-<p>Website: <%= @organization.website %></p>
+<p>Website: <a href="<%= @organization.website %>" target="_blank"><%= @organization.website %></a></p>
 <p>Facebook: <a href="<%= @organization.social %>" target="_blank"><%= @organization.social %></a></p>
 <p>Contact Name: <%= @organization.contact_name %></p>
 <p>Hours: <%= @organization.hours %></p>
 <p>Mission Statement: <%= @organization.mission_statement %></p>
 
-<a class="btn btn-info" href="/organizations/<%= @organization.id() %>/new_ticket">Claim an animal!</a>
+<a class="btn btn-info" href="/organizations/<%= @organization.id() %>/new_parent">Claim an animal!</a>
 
-<a class="btn btn-warning" href="/organizations/<%= @organization.id() %>/tickets_list">Manage your animals!</a>
+<a class="btn btn-warning" href="/organizations/<%= @organization.id() %>/manage">Manage your animals!</a>

@@ -5,7 +5,7 @@ require("sinatra/activerecord")
 require('./lib/GoodSamaritan')
 require('./lib/ChildTicket')
 require('./lib/organization')
-# require('./lib/parent_ticket')
+require('./lib/parent_ticket')
 also_reload('lib/**/*.rb')
 require 'pry'
 
@@ -134,20 +134,74 @@ end
 #########___Organization-Page___##########
 ##########################################
 get("/organizations/:id") do
- # 	@parent_ticket = ParentTicket.all()
+ 	@parent_tickets = ParentTicket.all()
 	@organization = Organization.find(params.fetch("id").to_i())
 	erb(:organization)
 end
 
-# post('/organizations/:id/claim') do
-#   organization_id = params.fetch('id').to_i()
-#   @parent_ticket = ParentTicket.find(params.fetch('parent_ticket_ids').to_i())
-#   current_parent_ticket_ids = organization.parent_ticket_ids
-#   organization.update({:parent_ticket_ids => current_parent_ticket_ids.push(organization_id)})
-#   @organization = Organization.find(parent_ticket_id)
-#   @parent_tickets = ParentTicket.all()
-#   redirect("/organizations/#{organization_id}")
-# end
+get('/organizations/:id/manage') do
+ 	@organization = Organization.all
+	@child_tickets = ChildTicket.all
+	@parent_tickets = ParentTicket.all
+	# organization_id = @parent_tickets.find(params.fetch("organization_id").to_i())
+	erb(:parent_tickets_list)
+end
+
+get('/organizations/:id/new_parent') do
+	@organization = Organization.find(params.fetch("id").to_i)
+	erb(:organization_new_ticket)
+end
+
+post('/organizations/:id') do
+	@organization = Organization.find(params.fetch('id').to_i())
+	# @child_ticket = ChildTicket.all()
+	@name = params.fetch("name")
+	organization_id = params.fetch('id').to_i()
+
+
+	if params.fetch("sterilized").first() == "false"
+		@sterilized = false
+	elsif params.fetch("sterilized").first() == "true"
+		@sterilized = true
+	end
+	@picture = params.fetch("picture")
+	if params.fetch("adoption_ready").first() == "false"
+		@adoption_ready = false
+	elsif params.fetch("adoption_ready").first() == "true"
+		@adoption_ready = true
+	end
+
+  @parent_ticket = ParentTicket.new({:name => @name, :sterilized => @sterilized, :adoption_ready => @adoption_ready, :picture => @picture, :organization_id => organization_id})
+	@parent_ticket.save
+
+  erb(:organization)
+end
+
+
+
+
+get("/orgnizations/:id/parent_tickets/:parent_ticket_id") do
+	@organization = Organization.find(params.fetch("id").to_i())
+	@child_tickets = ChildTicket.all
+	@parent_ticket = ParentTicket.find(params.fetch("parent_ticket_id"))
+	if @child_ticket.possession() == true
+		@insert_possession = ""
+	else
+		@insert_possession = "no"
+	end
+
+	if @child_ticket.news() == true
+		@insert_news = "a"
+	else
+		@insert_news = "no"
+	end
+	erb(:parent_ticket)
+end
+
+
+
+
+
 
 ####################################
 #########___Tickets-List___#########
