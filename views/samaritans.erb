@@ -1,10 +1,13 @@
-<h2>Contributing Good Samaritans</h2>
+<div class="panel panel-defaul">
+	<div class="panel-heading"><h2>Contributing Good Samaritans</h2></div>
+	<div class="panel-body">
+
 
 <%if @samaritans.any? %>
 <br>
-	<ul>
+	<ul class="fa-ul">
 		<% @samaritans.each do |samaritan| %>
-		<li ><i class="fa fa-heart"></i> <a href="/samaritans/<%= samaritan.id() %>"><span class="list-left"><%= samaritan.name() %></span> </a> <a href="mailto:<%= samaritan.email() %>"><span class="list-right"><%= samaritan.email() %></span></a></li>
+		<li><i class="fa fa-heart"></i> <a href="/samaritans/<%= samaritan.id() %>"><span class="list-left"><%= samaritan.name() %></span> </a> <a href="mailto:<%= samaritan.email() %>"><span class="list-right"><%= samaritan.email() %></span></a></li>
 		<% end %>
 	</ul>
 
@@ -12,4 +15,6 @@
 		<p>There are no samaritans yet!</p>
 <% end %>
 <br>
-<a href="/samaritans/new" class="btn-primary btn-lg raised">Submit a new Good Samaritan!</a>
+<a href="/samaritans/new" class="btn btn-success">Submit a new Good Samaritan!</a>
+</div>
+<div>

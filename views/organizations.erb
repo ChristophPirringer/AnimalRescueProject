@@ -1,9 +1,12 @@
-<h2>Organizations</h2>
+<div class="panel panel-defaul">
+  <div class="panel-heading"><h2>Organizations</h2></div>
+  <div class="panel-body">
+
 
 <%if @organizations.any? %>
-  <ul>
+  <ul class="fa-ul">
     <% @organizations.each do |organization| %>
-    <li><a href="/organizations/<%= organization.id() %>"><%= organization.name() %> </a></li>
+    <li><i class="fa fa-home"></i><a href="/organizations/<%= organization.id() %>"><%= organization.name() %> </a></li>
     <% end %>
   </ul>
 
@@ -11,3 +14,5 @@
     <p>There are no organizations yet!</p>
 <% end %>
 <a href="/organizations/new" class="btn btn-success">Add a new Organization!</a>
+</div>
+</div>

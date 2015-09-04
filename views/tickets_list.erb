@@ -1,8 +1,10 @@
-<h2>Sightings contributed by <i> <%= @samaritan.name() %></i>:</h2>
-<br>
+<div class="panel panel-defaul">
+	<div class="panel-heading"><h2>Sightings contributed by <i> <%= @samaritan.name() %></i>:</h2></div>
+	<div class="panel-body">
+
 <%if @samaritan.child_tickets.any? %>
 
-	<ul>
+	<ul class="fa-ul">
 		<% @samaritan.child_tickets.each do |child_ticket| %>
 		<li><a href="/samaritans/<%= @samaritan.id() %>/tickets/<%= child_ticket.id %>"> <i class="fa fa-paw"></i></i><span class="list-left"><%= child_ticket.animal_type() %> at <%= child_ticket.time() %></a></li>
 		<% end %>
@@ -13,3 +15,5 @@
 		<p>There are no sightings contributed yet!</p>
 
 <% end %>
+</div>
+</div>
