@@ -1,13 +1,7 @@
-require('pg')
-require('sinatra')
-require('sinatra/reloader')
-require("sinatra/activerecord")
-require('./lib/GoodSamaritan')
-require('./lib/ChildTicket')
-require('./lib/organization')
-require('./lib/parent_ticket')
-also_reload('lib/**/*.rb')
-require 'pry'
+require("bundler/setup")
+Bundler.require(:default)
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+require 'active_record'
 
 after do ()
 	ActiveRecord::Base.clear_active_connections!
