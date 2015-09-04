@@ -89,6 +89,7 @@ post("/samaritans/:id") do
 
 	test_ticket=ChildTicket.new({:animal_type => animal_type,:description => description,:location => location,:time => time,:possession => possession, :sex => sex, :news => news, :good_samaritan_id => good_samaritan_id})
 	test_ticket.save
+
 	erb(:samaritan)
 end
 
@@ -139,68 +140,96 @@ get("/organizations/:id") do
 	erb(:organization)
 end
 
+
+
+####################################
+######___Parent-Tickets-Form___#####
+####################################
+get('/organizations/:id/new_parent') do
+	@organization = Organization.find(params.fetch("id").to_i)
+	@child_tickets = ChildTicket.all()
+	erb(:parent_ticket_form)
+end
+
+
+
+post('/organizations/:id') do
+
+	@name = params.fetch("name")
+	@sterilized = params.fetch("sterilized")
+		if params.fetch("sterilized").first() == "false"
+			@sterilized = false
+		elsif params.fetch("sterilized").first() == "true"
+			@sterilized = true
+		end
+
+	phone = params.fetch("picture")
+
+	@adoption_ready = params.fetch("adoption_ready")
+		if params.fetch("adoption_ready")== "false"
+			@adoption_ready = false
+		elsif params.fetch("adoption_ready") == "true"
+			@adoption_ready = true
+		end
+	@organization = Organization.find(params.fetch("id").to_i)
+  @organization_id = params.fetch("id").to_i()
+
+  @parent_ticket = ParentTicket.new({:name => @name, :sterilized => @sterilized, :adoption_ready => @adoption_ready, :picture => @picture, :organization_id => @organization_id})
+	@parent_ticket.save
+
+  @linked_child_tickets = params.fetch("linked_child_ticket")
+
+	@linked_child_tickets.each do |linked_child_ticket|
+		linked_animal = ChildTicket.find(linked_child_ticket.to_i())
+		linked_animal.update(:parent_ticket_id => @parent_ticket.id())
+	end
+	@child_tickets = ChildTicket.all
+  erb(:organization)
+end
+
+
+####################################
+######___Parent-Tickets-List___#####
+####################################
+
 get('/organizations/:id/manage') do
- 	@organization = Organization.all
+# 	@organization = Organization.all
+	@organization = Organization.find(params.fetch("id").to_i())
+
 	@child_tickets = ChildTicket.all
 	@parent_tickets = ParentTicket.all
 	# organization_id = @parent_tickets.find(params.fetch("organization_id").to_i())
 	erb(:parent_tickets_list)
 end
 
-get('/organizations/:id/new_parent') do
-	@organization = Organization.find(params.fetch("id").to_i)
-	erb(:organization_new_ticket)
-end
 
-post('/organizations/:id') do
-	@organization = Organization.find(params.fetch('id').to_i())
-	# @child_ticket = ChildTicket.all()
-	@name = params.fetch("name")
-	organization_id = params.fetch('id').to_i()
-
-
-	if params.fetch("sterilized").first() == "false"
-		@sterilized = false
-	elsif params.fetch("sterilized").first() == "true"
-		@sterilized = true
-	end
-	@picture = params.fetch("picture")
-	if params.fetch("adoption_ready").first() == "false"
-		@adoption_ready = false
-	elsif params.fetch("adoption_ready").first() == "true"
-		@adoption_ready = true
-	end
-
-  @parent_ticket = ParentTicket.new({:name => @name, :sterilized => @sterilized, :adoption_ready => @adoption_ready, :picture => @picture, :organization_id => organization_id})
-	@parent_ticket.save
-
-  erb(:organization)
-end
-
-
-
-
-get("/orgnizations/:id/parent_tickets/:parent_ticket_id") do
+####################################
+######___Parent-Ticket-Entry___#####
+####################################
+get("/organizations/:id/parent_tickets/:parent_ticket_id") do
 	@organization = Organization.find(params.fetch("id").to_i())
-	@child_tickets = ChildTicket.all
 	@parent_ticket = ParentTicket.find(params.fetch("parent_ticket_id"))
-	if @child_ticket.possession() == true
-		@insert_possession = ""
-	else
-		@insert_possession = "no"
-	end
+	@child_tickets = ChildTicket.all
 
-	if @child_ticket.news() == true
-		@insert_news = "a"
-	else
-		@insert_news = "no"
+
+	@parent_ticket.child_tickets.each do |child_ticket|
+
+
+		if child_ticket.possession() == true
+			@insert_possession = ""
+		else
+			@insert_possession = "no"
+		end
+
+		if child_ticket.news() == true
+			@insert_news = "a"
+		else
+			@insert_news = "no"
+		end
+
 	end
 	erb(:parent_ticket)
 end
-
-
-
-
 
 
 ####################################

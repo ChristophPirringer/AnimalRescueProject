@@ -9,33 +9,23 @@
   </tr>
   <tr>
     <th>Sterilized?</th>
-    <td><%= @sterilized_insert %></td>
+    <td><%= @parent_ticket.sterilized? %></td>
   </tr>
   <tr>
     <th>Ready for adoption?</th>
-    <td><%= @adoption_insert %></td>
+    <td><%= @parent_ticket.adoption_ready? %></td>
   </tr>
 </table>
 
-
 <br>
 <table id="child_ticket" style="width:75%, text-align:left;">
-    <tr>
-      <th>Pictures of sightings:</th>
-      <td>
-          <% @parent_ticket.child_tickets.each() do |child_ticket|%>
-            <ul>
-              <li><%= child_ticket[0].picture %> by <%= GoodSamaritan.find(params.fetch(child_ticket[0].good_samaritan_id())) %></li>
-            </ul>
-          <% end %>
-      </td>
-    </tr>
+
   <tr>
     <th>Times of sightings:</th>
     <td>
         <% @parent_ticket.child_tickets.each() do |child_ticket|%>
           <ul>
-            <li><%= child_ticket[0].time %> by <%= GoodSamaritan.find(params.fetch(child_ticket[0].good_samaritan_id())) %></li>
+            <li><%= child_ticket.time %> </li>
           </ul>
         <% end %>
     </td>
@@ -45,7 +35,7 @@
     <td>
         <% @parent_ticket.child_tickets.each() do |child_ticket|%>
           <ul>
-            <li><%= child_ticket[0].location %> by <%= GoodSamaritan.find(params.fetch(child_ticket[0].good_samaritan_id())) %></li>
+            <li><%= child_ticket.location %> </li>
           </ul>
         <% end %>
     </td>
@@ -55,7 +45,7 @@
     <td>
         <% @parent_ticket.child_tickets.each() do |child_ticket|%>
           <ul>
-            <li><%= child_ticket[0].description %> by <%= GoodSamaritan.find(params.fetch(child_ticket[0].good_samaritan_id())) %></li>
+            <li><%= child_ticket.description %> </li>
           </ul>
         <% end %>
     </td>
@@ -65,7 +55,7 @@
     <td>
         <% @parent_ticket.child_tickets.each() do |child_ticket|%>
           <ul>
-            <li><%= child_ticket[0].animal_type %> by <%= GoodSamaritan.find(params.fetch(child_ticket[0].good_samaritan_id())) %></li>
+            <li><%= child_ticket.animal_type %> </li>
           </ul>
         <% end %>
     </td>
@@ -75,24 +65,24 @@
     <td>
         <% @parent_ticket.child_tickets.each() do |child_ticket|%>
           <ul>
-            <li><%= child_ticket[0].sex %> by <%= GoodSamaritan.find(params.fetch(child_ticket[0].good_samaritan_id())) %></li>
+            <li><%= child_ticket.sex %> </li>
           </ul>
         <% end %>
     </td>
   </tr>
   <tr>
-    <th>Were samaritans in posession?</th>
+    <th>Were samaritans in possession?</th>
     <% @parent_ticket.child_tickets.each() do |child_ticket|%>
       <ul>
-        <li><%= child_ticket[0].posession %> by <%= GoodSamaritan.find(params.fetch(child_ticket[0].good_samaritan_id())) %></li>
+        <li><%= child_ticket.possession %> </li>
       </ul>
     <% end %>
   </tr>
   <tr>
     <th>Were samaritans interested in news?</th>
-      <% @parent_ticket.child_tickets.each() do |child_ticket|%>
+    <% @parent_ticket.child_tickets.each() do |child_ticket|%>
         <ul>
-          <li><%= child_ticket[0].news %> by <%= GoodSamaritan.find(params.fetch(child_ticket[0].good_samaritan_id())) %></li>
+          <li><%= child_ticket.news %> </li>
         </ul>
       <% end %>
   </tr>

@@ -16,5 +16,12 @@
   <input id = "adoption_ready" type="checkbox" name="adoption_ready[]" value="true">The Animal Is Adoption-Ready!<br>
   <input id = "adoption_ready" type="checkbox" name="adoption_ready[]" value="false" checked>The Animal Is Not Adoption-Ready!<br>
   <br>
+  <label for="checkbox">Link the following sightings to the animal:</label>
+
+  <br>
+  <% @child_tickets.each() do |child_ticket|%>
+    <input type="checkbox" name="linked_child_ticket[]" value="<%= child_ticket.id %>"> link <%= child_ticket.animal_type() %> described as <%= child_ticket.description() %>to the animal<br>
+  <% end %>
+
   <button type="submit" class="btn-primary btn-lg raised">Submit Parent Ticket!</button>
 </form>
